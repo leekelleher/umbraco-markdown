@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C66026A9-3686-4E5B-A373-7BFD8AA7F624}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Our.Umbraco.DataType.Markdown</RootNamespace>
+    <AssemblyName>Our.Umbraco.DataType.Markdown</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Nonshipping>true</Nonshipping>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="businesslogic">
+      <HintPath>..\_externals\businesslogic.dll</HintPath>
+    </Reference>
+    <Reference Include="ClientDependency.Core">
+      <HintPath>..\_externals\ClientDependency.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="cms">
+      <HintPath>..\_externals\cms.dll</HintPath>
+    </Reference>
+    <Reference Include="interfaces">
+      <HintPath>..\_externals\interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownSharp">
+      <HintPath>..\_externals\MarkdownSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="umbraco">
+      <HintPath>..\_externals\umbraco.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\PrevalueEditorExtensions.cs" />
+    <Compile Include="Extensions\ResourceExtensions.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="WmdControl.cs" />
+    <Compile Include="XmlData.cs" />
+    <Compile Include="DataEditor.cs" />
+    <Compile Include="PrevalueEditor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\our-umbraco.png" />
+    <EmbeddedResource Include="Resources\Styles\PrevalueEditor.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\MarkEdit\examples\basic.html" />
+    <Content Include="Resources\MarkEdit\examples\dark-theme.html" />
+    <Content Include="Resources\MarkEdit\examples\flickr-image-gallery.html" />
+    <Content Include="Resources\MarkEdit\examples\in-chinese.html" />
+    <Content Include="Resources\MarkEdit\examples\in-place-editing-with-preview.html" />
+    <Content Include="Resources\MarkEdit\examples\in-place-editing.html" />
+    <Content Include="Resources\MarkEdit\examples\multiple-editors.html" />
+    <Content Include="Resources\MarkEdit\examples\multiple-preview-panes.html" />
+    <Content Include="Resources\MarkEdit\images\wmd-buttons-dark.png" />
+    <EmbeddedResource Include="Resources\MarkEdit\images\wmd-buttons.png" />
+    <EmbeddedResource Include="Resources\MarkEdit\jquery.markedit.css" />
+    <EmbeddedResource Include="Resources\MarkEdit\jquery.markedit.js" />
+    <Content Include="Resources\MarkEdit\lang\markedit.lang.de.js" />
+    <Content Include="Resources\MarkEdit\lang\markedit.lang.es.js" />
+    <Content Include="Resources\MarkEdit\lang\markedit.lang.template.js" />
+    <Content Include="Resources\MarkEdit\lang\markedit.lang.zh.js" />
+    <Content Include="Resources\MarkEdit\mit license.txt" />
+    <Content Include="Resources\MarkEdit\readme.txt" />
+    <EmbeddedResource Include="Resources\MarkEdit\showdown.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MarkEdit\images\wmd-buttons-dark.psd" />
+    <None Include="Resources\MarkEdit\images\wmd-buttons.psd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Scripts\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
