@@ -28,6 +28,11 @@ namespace Our.Umbraco.DataType.Markdown
 		private static readonly object m_Locker = new object();
 
 		/// <summary>
+		/// The CheckBox for enabling editing history on the WMD editor.
+		/// </summary>
+		private CheckBox EnableHistory;
+
+		/// <summary>
 		/// The CheckBox for enabling the WMD Editor.
 		/// </summary>
 		private CheckBox EnableWmd;
@@ -41,6 +46,11 @@ namespace Our.Umbraco.DataType.Markdown
 		/// The TextBox control for the height of the data-type.
 		/// </summary>
 		private TextBox TextBoxHeight;
+
+		/// <summary>
+		/// The TextBox control for the help URL.
+		/// </summary>
+		private TextBox TextBoxHelpUrl;
 
 		/// <summary>
 		/// The TextBox control for the width of the data-type.
@@ -113,7 +123,9 @@ namespace Our.Umbraco.DataType.Markdown
 			// set the options
 			var options = new Options(true)
 			{
+				EnableHistory = this.EnableHistory.Checked,
 				EnableWmd = this.EnableWmd.Checked,
+				HelpUrl = this.TextBoxHelpUrl.Text,
 				SelectedPreview = this.PreviewOptions.SelectedValue
 			};
 
@@ -123,7 +135,7 @@ namespace Our.Umbraco.DataType.Markdown
 			{
 				if (height == 0)
 				{
-					height = 400;
+					height = 300;
 				}
 
 				options.Height = height;
@@ -134,7 +146,7 @@ namespace Our.Umbraco.DataType.Markdown
 			{
 				if (width == 0)
 				{
-					width = 490;
+					width = 525;
 				}
 
 				options.Width = width;
@@ -218,9 +230,11 @@ namespace Our.Umbraco.DataType.Markdown
 			base.CreateChildControls();
 
 			// set-up child controls
+			this.EnableHistory = new CheckBox() { ID = "EnableHistory" };
 			this.EnableWmd = new CheckBox() { ID = "EnableWmd" };
 			this.PreviewOptions = new RadioButtonList() { ID = "PreviewOptions", RepeatDirection = RepeatDirection.Vertical, RepeatLayout = RepeatLayout.Flow };
 			this.TextBoxHeight = new TextBox() { ID = "Height", CssClass = "guiInputText" };
+			this.TextBoxHelpUrl = new TextBox() { ID = "TextBoxHelpUrl", CssClass = "guiInputText umbEditorTextField" };
 			this.TextBoxWidth = new TextBox() { ID = "Width", CssClass = "guiInputText" };
 
 			// populate the controls
@@ -234,9 +248,11 @@ namespace Our.Umbraco.DataType.Markdown
 			this.PreviewOptions.Items.AddRange(items);
 
 			// add the child controls
+			this.Controls.Add(this.EnableHistory);
 			this.Controls.Add(this.EnableWmd);
 			this.Controls.Add(this.PreviewOptions);
 			this.Controls.Add(this.TextBoxHeight);
+			this.Controls.Add(this.TextBoxHelpUrl);
 			this.Controls.Add(this.TextBoxWidth);
 		}
 
@@ -258,9 +274,11 @@ namespace Our.Umbraco.DataType.Markdown
 			}
 
 			// set the values
+			this.EnableHistory.Checked = options.EnableHistory;
 			this.EnableWmd.Checked = options.EnableWmd;
 			this.PreviewOptions.SelectedValue = options.SelectedPreview;
 			this.TextBoxHeight.Text = options.Height.ToString();
+			this.TextBoxHelpUrl.Text = options.HelpUrl;
 			this.TextBoxWidth.Text = options.Width.ToString();
 		}
 
@@ -278,6 +296,8 @@ namespace Our.Umbraco.DataType.Markdown
 			// configuration options - http://wiki.github.com/tstone/jquery-markedit/configuration-options
 			writer.AddPrevalueRow(string.Empty, "The following options are only applicable when the WMD editor is enabled.");
 			writer.AddPrevalueRow("Preview:", this.PreviewOptions);
+			writer.AddPrevalueRow("Enable history:", "This enables/disables the undo/redo editing history for the WMD editor.", this.EnableHistory);
+			writer.AddPrevalueRow("Help URL:", "Override the help URL for the WMD editor.", this.TextBoxHelpUrl);
 		}
 	}
 }

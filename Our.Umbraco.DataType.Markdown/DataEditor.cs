@@ -26,7 +26,7 @@ namespace Our.Umbraco.DataType.Markdown
 		/// The PreValue Editor for the data-type.
 		/// </summary>
 		private PrevalueEditor m_PreValueEditor;
-
+		
 		/// <summary>
 		/// Initializes a new instance of the <see cref="DataEditor"/> class.
 		/// </summary>

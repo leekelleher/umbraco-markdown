@@ -126,23 +126,57 @@ namespace Our.Umbraco.DataType.Markdown
 				////const char COMMA = ',';
 
 				// set the MarkEdit options
-				var markEditOptions = new StringBuilder("{");
+				var markeditOptions = new StringBuilder("{");
 
-				// prevalue option
-				markEditOptions.Append("'preview': ");
+				// history option
+				if (!this.Options.EnableHistory)
+				{
+					markeditOptions.Append("'history': false, ");
+				}
+
+				// preview option
+				markeditOptions.Append("'preview': ");
 				if (!string.IsNullOrEmpty(this.Options.SelectedPreview))
 				{
-					markEditOptions.Append(QUOTE).Append(this.Options.SelectedPreview).Append(QUOTE);
+					markeditOptions
+						.Append(QUOTE)
+						.Append(this.Options.SelectedPreview)
+						.Append(QUOTE);
 				}
 				else
 				{
-					markEditOptions.Append("false");
+					markeditOptions.Append("false");
 				}
 
-				markEditOptions.Append("}");
+				markeditOptions
+					.Append(", 'toolbar': { ")
+					.Append("'layout': 'bold italic | link quote code image | numberlist bulletlist heading line");
+
+				// reference the help button
+				if (!string.IsNullOrEmpty(this.Options.HelpUrl))
+				{
+					markeditOptions.Append(" | help");	
+				}
+
+				markeditOptions
+					.Append("', ")
+					.Append("'buttons' : [ ");
+
+				// add the help button
+				if (!string.IsNullOrEmpty(this.Options.HelpUrl))
+				{
+					markeditOptions
+						.Append("{ 'id' : 'help', 'css' : 'help', 'tip' : 'Markdown Syntax Help', 'click' : function(){ window.open('")
+						.Append(this.Options.HelpUrl)
+						.Append("'); }, 'mouseover' : function(){}, 'mouseout' : function(){} }");
+				}
+				
+				markeditOptions
+					.Append(" ] }")
+					.Append("}");
 
 				// add jquery window load event
-				var javascriptMethod = string.Format("jQuery('#{0}').markedit( {1} );", this.TextBoxControl.ClientID, markEditOptions);
+				var javascriptMethod = string.Format("jQuery('#{0}').markedit( {1} );", this.TextBoxControl.ClientID, markeditOptions);
 				var javascript = string.Concat("<script type='text/javascript'>jQuery(window).load(function(){", javascriptMethod, "});</script>");
 				writer.WriteLine(javascript);
 			}

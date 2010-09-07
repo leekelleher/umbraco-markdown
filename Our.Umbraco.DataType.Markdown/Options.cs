@@ -23,12 +23,20 @@ namespace Our.Umbraco.DataType.Markdown
 		{
 			if (loadDefaults)
 			{
+				this.EnableHistory = true;
 				this.EnableWmd = true;
-				this.Height = 400;
+				this.Height = 300;
+				this.HelpUrl = "http://daringfireball.net/projects/markdown/syntax";
 				this.SelectedPreview = "toolbar";
-				this.Width = 490;
+				this.Width = 525;
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether [enable history].
+		/// </summary>
+		/// <value><c>true</c> if [enable history]; otherwise, <c>false</c>.</value>
+		public bool EnableHistory { get; set; }
 
 		/// <summary>
 		/// Gets or sets a value indicating whether [enable WMD].
@@ -44,6 +52,12 @@ namespace Our.Umbraco.DataType.Markdown
 		[DefaultValue(400)]
 		public int Height { get; set; }
 
+		/// <summary>
+		/// Gets or sets the help URL.
+		/// </summary>
+		/// <value>The help URL.</value>
+		[DefaultValue("http://daringfireball.net/projects/markdown/syntax")]
+		public string HelpUrl { get; set; }
 
 		/// <summary>
 		/// Gets or sets the selected preview.
