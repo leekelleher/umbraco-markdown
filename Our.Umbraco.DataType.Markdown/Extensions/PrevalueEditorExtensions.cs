@@ -35,7 +35,7 @@ namespace Our.Umbraco.DataType.Markdown.Extensions
 			writer.AddAttribute(HtmlTextWriterAttribute.Class, "label");
 			writer.RenderBeginTag(HtmlTextWriterTag.Div); // start 'label'
 
-			Label lbl = new Label() { Text = label }; // TODO: Is it possible to include 'AssociatedControlID'?
+			Label lbl = new Label() { Text = label };
 			lbl.RenderControl(writer);
 
 			writer.RenderEndTag(); // end 'label'
@@ -46,7 +46,6 @@ namespace Our.Umbraco.DataType.Markdown.Extensions
 			foreach (Control control in controls)
 			{
 				control.RenderControl(writer);
-
 			}
 
 			writer.RenderEndTag(); // end 'field'

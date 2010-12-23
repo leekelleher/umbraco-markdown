@@ -10,6 +10,8 @@ using umbraco.BusinessLogic;
 using umbraco.cms.businesslogic.datatype;
 using umbraco.interfaces;
 
+[assembly: WebResource("Our.Umbraco.DataType.Markdown.Resources.Styles.PrevalueEditor.css", "text/css", PerformSubstitution = true)]
+
 namespace Our.Umbraco.DataType.Markdown
 {
 	/// <summary>
@@ -191,8 +193,8 @@ namespace Our.Umbraco.DataType.Markdown
 		/// <param name="writer">A <see cref="T:System.Web.UI.HtmlTextWriter"/> that represents the output stream to render HTML content on the client.</param>
 		public override void RenderBeginTag(HtmlTextWriter writer)
 		{
-			writer.AddAttribute(HtmlTextWriterAttribute.Class, "OurUmbraco");
-			writer.RenderBeginTag(HtmlTextWriterTag.Div); //// start 'OurUmbraco'
+			writer.AddAttribute(HtmlTextWriterAttribute.Class, "settings");
+			writer.RenderBeginTag(HtmlTextWriterTag.Div); //// start 'settings'
 
 			base.RenderBeginTag(writer);
 		}
@@ -205,7 +207,7 @@ namespace Our.Umbraco.DataType.Markdown
 		{
 			base.RenderEndTag(writer);
 
-			writer.RenderEndTag(); //// end 'OurUmbraco'
+			writer.RenderEndTag(); //// end 'settings'
 		}
 
 		/// <summary>

@@ -36,6 +36,7 @@ namespace Our.Umbraco.DataType.Markdown
 		/// Gets or sets a value indicating whether [enable history].
 		/// </summary>
 		/// <value><c>true</c> if [enable history]; otherwise, <c>false</c>.</value>
+		[DefaultValue(true)]
 		public bool EnableHistory { get; set; }
 
 		/// <summary>
@@ -49,7 +50,7 @@ namespace Our.Umbraco.DataType.Markdown
 		/// Gets or sets the height.
 		/// </summary>
 		/// <value>The height.</value>
-		[DefaultValue(400)]
+		[DefaultValue(300)]
 		public int Height { get; set; }
 
 		/// <summary>
@@ -70,7 +71,7 @@ namespace Our.Umbraco.DataType.Markdown
 		/// Gets or sets the width.
 		/// </summary>
 		/// <value>The width.</value>
-		[DefaultValue(490)]
+		[DefaultValue(525)]
 		public int Width { get; set; }
 	}
 }

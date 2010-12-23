@@ -24,7 +24,7 @@ namespace Our.Umbraco.DataType.Markdown
 		/// Transforms the Markdown value to HTML.
 		/// </summary>
 		/// <param name="data">The data (Markdown) to transform into HTML.</param>
-		/// <returns></returns>
+		/// <returns>Returns an XML representation of the data.</returns>
 		public override XmlNode ToXMl(XmlDocument data)
 		{
 			// check that the value isn't null

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+	<files />
+	<info>
+		<package>
+			<name>Markdown Editor</name>
+			<version>1.1</version>
+			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+			<url>http://our.umbraco.org/projects/backoffice-extensions/markdown-editor</url>
+			<requirements>
+				<major>4</major>
+				<minor>5</minor>
+				<patch>0</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>Lee Kelleher</name>
+			<website>http://leekelleher.com</website>
+		</author>
+		<readme><![CDATA[]]></readme>
+	</info>
+	<DocumentTypes />
+	<Templates />
+	<Stylesheets />
+	<Macros />
+	<DictionaryItems />
+	<Languages />
+	<DataTypes>
+		<DataType Name="Markdown Editor" Id="7e909384-2543-4aeb-acea-5e256f68c480" Definition="2058cfc3-0ac3-4a89-a04a-e46cf678d8b8">
+			<PreValues>
+				<PreValue Id="118" Value="{&quot;EnableWmd&quot;:true,&quot;Height&quot;:400,&quot;SelectedPreview&quot;:&quot;toolbar&quot;,&quot;Width&quot;:490}" />
+			</PreValues>
+		</DataType>
+	</DataTypes>
+	<Actions />
+</umbPackage>

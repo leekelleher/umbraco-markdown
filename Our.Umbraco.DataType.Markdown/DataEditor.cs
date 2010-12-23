@@ -10,6 +10,9 @@ using umbraco.interfaces;
 
 namespace Our.Umbraco.DataType.Markdown
 {
+	/// <summary>
+	/// The DataEditor for the Markdown Editor data-type.
+	/// </summary>
 	public class DataEditor : AbstractDataEditor
 	{
 		/// <summary>
@@ -68,9 +71,9 @@ namespace Our.Umbraco.DataType.Markdown
 		}
 
 		/// <summary>
-		/// Gets the data.
+		/// Gets the data for the data-type..
 		/// </summary>
-		/// <value>The data.</value>
+		/// <value>The data for the data-type..</value>
 		public override IData Data
 		{
 			get

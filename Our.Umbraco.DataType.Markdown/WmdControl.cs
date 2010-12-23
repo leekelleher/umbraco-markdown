@@ -13,6 +13,9 @@ using Our.Umbraco.DataType.Markdown.Extensions;
 
 namespace Our.Umbraco.DataType.Markdown
 {
+	/// <summary>
+	/// The WMD control for the Markdown Editor.
+	/// </summary>
 	public class WmdControl : WebControl
 	{
 		/// <summary>

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.UI;
 
-using ClientDependency.Core.Controls;
 using ClientDependency.Core;
+using ClientDependency.Core.Controls;
 
 namespace Our.Umbraco.DataType.Markdown.Extensions
 {
@@ -16,15 +16,15 @@ namespace Our.Umbraco.DataType.Markdown.Extensions
 		/// </summary>
 		/// <param name="ctl">The control.</param>
 		/// <param name="resourceName">Name of the resource.</param>
-		/// <param name="type">The type.</param>
+		/// <param name="type">The type of resource.</param>
 		public static void AddResourceToClientDependency(this Control ctl, string resourceName, ClientDependencyType type)
 		{
-			//get the urls for the embedded resources           
+			// get the urls for the embedded resources
 			var resourceUrl = ctl.Page.ClientScript.GetWebResourceUrl(ctl.GetType(), resourceName);
 
-			//This only works in v4 currently or until i release CD version 1.2, so in the meantime, we'll use the below method
-			//add the resources to client dependency
-			//ClientDependencyLoader.Instance.RegisterDependency(resourceUrl, type);
+			// This only works in v4 currently or until i release CD version 1.2,
+			// so in the meantime, we'll use the below method add the resources to client dependency
+			//// ClientDependencyLoader.Instance.RegisterDependency(resourceUrl, type);
 
 			switch (type)
 			{

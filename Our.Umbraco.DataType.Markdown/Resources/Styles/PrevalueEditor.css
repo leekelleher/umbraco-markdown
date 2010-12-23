@@ -1,90 +1,11 @@
-﻿/* Standard clearfix */
-.clearfix:after
-{
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
-}
-
-.clearfix
-{
-	display: inline-block;
-}
-
-html[xmlns] .clearfix
-{
-	display: block;
-}
-
-* html .clearfix
-{
-	height: 1%;
-}
-
-.OurUmbraco
-{
-	background: transparent url(<%= WebResource("Our.Umbraco.DataType.Markdown.Resources.Images.our-umbraco.png")%>) no-repeat right 8px;
-	padding-top: 40px;
-}
-.OurUmbraco .row
-{
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-.OurUmbraco .label
-{
-	float: left;
-	width: 120px;
-	margin-right: 10px;
-}
-.OurUmbraco .field
-{
-	float: left;
-}
-
-.OurUmbraco .description
-{
-	clear: left;
-	color: #666;
-	float: left;
-	font-style: italic;
-	margin: 3px 0 10px 130px;
-}
-
-.OurUmbraco .description a
-{
-	border-bottom: 1px dotted #666;
-	color: #666;
-	text-decoration: none;
-}
-
-.OurUmbraco .description a:hover
-{
-	border-bottom: 1px dotted #630;
-	color: #630;
-}
-
-/* validation */
-.OurUmbraco .validator
-{
-	color: red;
-	display: block;
-	font-size: 11px;
-	margin-bottom: 3px;
-	margin-top: 3px;
-	visibility: visible;
-}
-
-/* headers */
-.OurUmbraco h3
-{
-}
-
-/* Tables */
-.OurUmbraco td
-{
-	font-weight: bold;
-}
+﻿.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}
+.clearfix{display:inline-block;}
+html[xmlns] .clearfix{display:block;}
+* html .clearfix{height:1%;}
+.settings{}
+.settings .row{margin-top:5px;margin-bottom:5px;}
+.settings .label{float:left;width:120px;margin-right:10px;}
+.settings .field{float:left;}
+.settings .description{clear:left;color:#666;float:left;font-style:italic;margin:3px 0 10px 130px;}
+.settings .description a{border-bottom:1px dotted #666;color:#666;text-decoration:none;}
+.settings .description a:hover{border-bottom:1px dotted #630;color:#630;}
