@@ -27,6 +27,7 @@ namespace Our.Umbraco.DataType.Markdown
 				this.EnableWmd = true;
 				this.Height = 300;
 				this.HelpUrl = "http://daringfireball.net/projects/markdown/syntax";
+				this.SaveAsXml = false;
 				this.SelectedPreview = "toolbar";
 				this.Width = 525;
 			}
@@ -59,6 +60,13 @@ namespace Our.Umbraco.DataType.Markdown
 		/// <value>The help URL.</value>
 		[DefaultValue("http://daringfireball.net/projects/markdown/syntax")]
 		public string HelpUrl { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether [save as XML].
+		/// </summary>
+		/// <value><c>true</c> if [save as XML]; otherwise, <c>false</c>.</value>
+		[DefaultValue(false)]
+		public bool SaveAsXml { get; set; }
 
 		/// <summary>
 		/// Gets or sets the selected preview.

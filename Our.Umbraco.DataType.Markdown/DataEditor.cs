@@ -24,6 +24,11 @@ namespace Our.Umbraco.DataType.Markdown
 		/// The Data object for the data-type.
 		/// </summary>
 		private IData m_Data;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private Options m_Options;
 		
 		/// <summary>
 		/// The PreValue Editor for the data-type.
@@ -80,10 +85,23 @@ namespace Our.Umbraco.DataType.Markdown
 			{
 				if (this.m_Data == null)
 				{
-					this.m_Data = new XmlData(this);
+					this.m_Data = this.Options.SaveAsXml ? new XmlData(this) : new TextData(this);
 				}
 
 				return this.m_Data;
+			}
+		}
+
+		public Options Options
+		{
+			get
+			{
+				if (this.m_Options == null)
+				{
+					this.m_Options = ((PrevalueEditor)this.PrevalueEditor).GetPreValueOptions<Options>();
+				}
+
+				return this.m_Options;
 			}
 		}
 
@@ -111,8 +129,8 @@ namespace Our.Umbraco.DataType.Markdown
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		private void m_Control_Init(object sender, EventArgs e)
 		{
-			// get the options from the Prevalue Editor.
-			this.m_Control.Options = ((PrevalueEditor)this.PrevalueEditor).GetPreValueOptions<Options>();
+			// get the options for the data-type.
+			this.m_Control.Options = this.Options;
 
 			// set the value of the control
 			if (this.Data.Value != null)

@@ -7,15 +7,15 @@ using umbraco.cms.businesslogic.datatype;
 namespace Our.Umbraco.DataType.Markdown
 {
 	/// <summary>
-	/// Overrides the <see cref="Our.Umbraco.DataType.Markdown.TextData"/> object to return the value as XML.
+	/// Overrides the <see cref="umbraco.cms.businesslogic.datatype.DefaultData"/> object to return the value as HTML.
 	/// </summary>
-	public class XmlData : TextData
+	public class TextData : DefaultData
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="XmlData"/> class.
 		/// </summary>
 		/// <param name="dataType">Type of the data.</param>
-		public XmlData(BaseDataType dataType)
+		public TextData(BaseDataType dataType)
 			: base(dataType)
 		{
 		}
@@ -24,7 +24,7 @@ namespace Our.Umbraco.DataType.Markdown
 		/// Transforms the Markdown value to HTML.
 		/// </summary>
 		/// <param name="data">The data (Markdown) to transform into HTML.</param>
-		/// <returns>Returns an XML representation of the data.</returns>
+		/// <returns>Returns an HTML representation of the data.</returns>
 		public override XmlNode ToXMl(XmlDocument data)
 		{
 			// check that the value isn't null
@@ -34,12 +34,8 @@ namespace Our.Umbraco.DataType.Markdown
 				var markdown = new MarkdownSharp.Markdown();
 				string output = markdown.Transform(this.Value.ToString());
 				
-				// load the HTML into an XML document.
-				var xd = new XmlDocument();
-				xd.LoadXml(string.Concat("<html>", output, "</html>"));
-
-				// return the XML node.
-				return data.ImportNode(xd.DocumentElement, true);
+				// return the transformed HTML (as CDATA)
+				return data.CreateCDataSection(output);
 			}
 			else
 			{
