@@ -28,7 +28,7 @@
 	<DataTypes>
 		<DataType Name="Markdown Editor" Id="7e909384-2543-4aeb-acea-5e256f68c480" Definition="2058cfc3-0ac3-4a89-a04a-e46cf678d8b8">
 			<PreValues>
-				<PreValue Id="118" Value="{&quot;EnableWmd&quot;:true,&quot;Height&quot;:400,&quot;SaveAsXml&quot;:false,&quot;SelectedPreview&quot;:&quot;toolbar&quot;,&quot;Width&quot;:490}" />
+				<PreValue Id="8" Value="{&quot;EnableHistory&quot;:true,&quot;EnableWmd&quot;:true,&quot;Height&quot;:400,&quot;HelpUrl&quot;:&quot;http://daringfireball.net/projects/markdown/syntax&quot;,&quot;SaveAsXml&quot;:false,&quot;SelectedPreview&quot;:&quot;toolbar&quot;,&quot;Width&quot;:525}" />
 			</PreValues>
 		</DataType>
 	</DataTypes>

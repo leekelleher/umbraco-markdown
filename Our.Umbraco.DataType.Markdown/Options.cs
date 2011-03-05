@@ -25,7 +25,7 @@ namespace Our.Umbraco.DataType.Markdown
 			{
 				this.EnableHistory = true;
 				this.EnableWmd = true;
-				this.Height = 300;
+				this.Height = 400;
 				this.HelpUrl = "http://daringfireball.net/projects/markdown/syntax";
 				this.SaveAsXml = false;
 				this.SelectedPreview = "toolbar";
@@ -51,7 +51,7 @@ namespace Our.Umbraco.DataType.Markdown
 		/// Gets or sets the height.
 		/// </summary>
 		/// <value>The height.</value>
-		[DefaultValue(300)]
+		[DefaultValue(400)]
 		public int Height { get; set; }
 
 		/// <summary>
