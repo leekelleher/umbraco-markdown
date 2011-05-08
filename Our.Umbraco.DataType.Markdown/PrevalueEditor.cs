@@ -17,7 +17,7 @@ namespace Our.Umbraco.DataType.Markdown
 	/// <summary>
 	/// The Prevalue Editor for the Markdown data-type.
 	/// </summary>
-	public class PrevalueEditor : WebControl, IDataPrevalue
+	public sealed class PrevalueEditor : WebControl, IDataPrevalue
 	{
 		/// <summary>
 		/// The underlying base data-type.
@@ -44,7 +44,10 @@ namespace Our.Umbraco.DataType.Markdown
 		/// </summary>
 		private RadioButtonList PreviewOptions;
 
-		private CheckBox SaveAsXml;
+		/// <summary>
+		/// The RadioButtonList for the output formats.
+		/// </summary>
+		private RadioButtonList OutputFormats;
 
 		/// <summary>
 		/// The TextBox control for the height of the data-type.
@@ -130,7 +133,7 @@ namespace Our.Umbraco.DataType.Markdown
 				EnableHistory = this.EnableHistory.Checked,
 				EnableWmd = this.EnableWmd.Checked,
 				HelpUrl = this.TextBoxHelpUrl.Text,
-				SaveAsXml = this.SaveAsXml.Checked,
+				OutputFormat = (Options.OutputFormats)this.OutputFormats.SelectedIndex,
 				SelectedPreview = this.PreviewOptions.SelectedValue
 			};
 
@@ -238,7 +241,7 @@ namespace Our.Umbraco.DataType.Markdown
 			this.EnableHistory = new CheckBox() { ID = "EnableHistory" };
 			this.EnableWmd = new CheckBox() { ID = "EnableWmd" };
 			this.PreviewOptions = new RadioButtonList() { ID = "PreviewOptions", RepeatDirection = RepeatDirection.Vertical, RepeatLayout = RepeatLayout.Flow };
-			this.SaveAsXml = new CheckBox() { ID = "SaveAsXml" };
+			this.OutputFormats = new RadioButtonList() { ID = "OutputFormats", RepeatDirection = RepeatDirection.Vertical, RepeatLayout = RepeatLayout.Flow };
 			this.TextBoxHeight = new TextBox() { ID = "Height", CssClass = "guiInputText" };
 			this.TextBoxHelpUrl = new TextBox() { ID = "TextBoxHelpUrl", CssClass = "guiInputText umbEditorTextField" };
 			this.TextBoxWidth = new TextBox() { ID = "Width", CssClass = "guiInputText" };
@@ -253,11 +256,19 @@ namespace Our.Umbraco.DataType.Markdown
 			};
 			this.PreviewOptions.Items.AddRange(items);
 
+			items = new ListItem[]
+			{
+				new ListItem("HTML - Renders the Markdown text as HTML, stored as CDATA text.", "0"),
+				new ListItem("XML - Renders the Markdown text as HTML, stored as raw XML.", "1"),
+				new ListItem("Markdown - Outputs the raw Markdown, stored as CDATA text.", "2")
+			};
+			this.OutputFormats.Items.AddRange(items);
+
 			// add the child controls
 			this.Controls.Add(this.EnableHistory);
 			this.Controls.Add(this.EnableWmd);
 			this.Controls.Add(this.PreviewOptions);
-			this.Controls.Add(this.SaveAsXml);
+			this.Controls.Add(this.OutputFormats);
 			this.Controls.Add(this.TextBoxHeight);
 			this.Controls.Add(this.TextBoxHelpUrl);
 			this.Controls.Add(this.TextBoxWidth);
@@ -284,7 +295,7 @@ namespace Our.Umbraco.DataType.Markdown
 			this.EnableHistory.Checked = options.EnableHistory;
 			this.EnableWmd.Checked = options.EnableWmd;
 			this.PreviewOptions.SelectedValue = options.SelectedPreview;
-			this.SaveAsXml.Checked = options.SaveAsXml;
+			this.OutputFormats.SelectedIndex = options.SaveAsXml ? 1 : (int)options.OutputFormat;
 			this.TextBoxHeight.Text = options.Height.ToString();
 			this.TextBoxHelpUrl.Text = options.HelpUrl;
 			this.TextBoxWidth.Text = options.Width.ToString();
@@ -299,7 +310,7 @@ namespace Our.Umbraco.DataType.Markdown
 			// add property fields
 			writer.AddPrevalueRow("Height:", this.TextBoxHeight);
 			writer.AddPrevalueRow("Width:", this.TextBoxWidth);
-			writer.AddPrevalueRow("Save as XML?", "Enabling this option saves the HTML output as raw XML, (not as CDATA text). This can give you greater flexibility in your XSLT templates.", this.SaveAsXml);
+			writer.AddPrevalueRow("Output Format:", this.OutputFormats);
 			writer.AddPrevalueRow("Enable WMD editor:", "The WMD editor is powered by <a href='http://tstone.github.com/jquery-markedit/' target='_blank'>MarkEdit</a> by Titus Stone.", this.EnableWmd);
 
 			// configuration options - http://wiki.github.com/tstone/jquery-markedit/configuration-options

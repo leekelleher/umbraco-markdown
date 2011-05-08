@@ -27,7 +27,7 @@ namespace Our.Umbraco.DataType.Markdown
 				this.EnableWmd = true;
 				this.Height = 400;
 				this.HelpUrl = "http://daringfireball.net/projects/markdown/syntax";
-				this.SaveAsXml = false;
+				this.OutputFormat = OutputFormats.HTML;
 				this.SelectedPreview = "toolbar";
 				this.Width = 525;
 			}
@@ -62,10 +62,38 @@ namespace Our.Umbraco.DataType.Markdown
 		public string HelpUrl { get; set; }
 
 		/// <summary>
+		/// The output formats for the data-type.
+		/// </summary>
+		public enum OutputFormats
+		{
+			/// <summary>
+			/// Outputs as HTML.
+			/// </summary>
+			HTML = 0,
+
+			/// <summary>
+			/// Outputs as XML.
+			/// </summary>
+			XML = 1,
+
+			/// <summary>
+			/// Outputs as raw Markdown.
+			/// </summary>
+			Markdown = 2
+		}
+
+		/// <summary>
+		/// Gets or sets the output format.
+		/// </summary>
+		/// <value>The output format.</value>
+		[DefaultValue(OutputFormats.HTML)]
+		public OutputFormats OutputFormat { get; set; }
+
+		/// <summary>
 		/// Gets or sets a value indicating whether [save as XML].
 		/// </summary>
 		/// <value><c>true</c> if [save as XML]; otherwise, <c>false</c>.</value>
-		[DefaultValue(false)]
+		[DefaultValue(false), Obsolete("The SaveAsXml property is no longer used, please use the OutputFormat property.")]
 		public bool SaveAsXml { get; set; }
 
 		/// <summary>

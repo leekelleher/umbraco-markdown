@@ -7,7 +7,7 @@
 
 	<!-- PROPERTIES -->
 	<PropertyGroup>
-		<PackageVersion>1.2</PackageVersion>
+		<PackageVersion>1.3</PackageVersion>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -46,6 +46,7 @@
 	<Target Name="PrepairFiles" DependsOnTargets="Compile">
 		<ItemGroup>
 			<BinFiles Include="$(RootDir)\bin\Release\MarkdownSharp.dll" />
+			<BinFiles Include="$(RootDir)\bin\Release\HtmlToMarkdown.dll" />
 			<BinFiles Include="$(RootDir)\bin\Release\Our.Umbraco.DataType.Markdown.dll" />
 			<PackageFile Include="$(MSBuildProjectDirectory)\package.xml" />
 		</ItemGroup>

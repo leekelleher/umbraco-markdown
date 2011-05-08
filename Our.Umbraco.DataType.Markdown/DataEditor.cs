@@ -13,7 +13,7 @@ namespace Our.Umbraco.DataType.Markdown
 	/// <summary>
 	/// The DataEditor for the Markdown Editor data-type.
 	/// </summary>
-	public class DataEditor : AbstractDataEditor
+	public sealed class DataEditor : AbstractDataEditor
 	{
 		/// <summary>
 		/// The WMD/Markdown control.
@@ -76,16 +76,38 @@ namespace Our.Umbraco.DataType.Markdown
 		}
 
 		/// <summary>
-		/// Gets the data for the data-type..
+		/// Gets the data for the data-type.
 		/// </summary>
-		/// <value>The data for the data-type..</value>
+		/// <value>The data for the data-type.</value>
 		public override IData Data
 		{
 			get
 			{
 				if (this.m_Data == null)
 				{
-					this.m_Data = this.Options.SaveAsXml ? new XmlData(this) : new TextData(this);
+					switch (this.Options.OutputFormat)
+					{
+						case Options.OutputFormats.HTML:
+							this.m_Data = new TextData(this);
+							break;
+
+						case Options.OutputFormats.XML:
+							this.m_Data = new XmlData(this);
+							break;
+
+						case Options.OutputFormats.Markdown:
+							this.m_Data = new DefaultData(this);
+							break;
+
+						default:
+							this.m_Data = new TextData(this);
+							break;
+					}
+
+					if (this.Options.SaveAsXml)
+					{
+						this.m_Data = new XmlData(this);
+					}
 				}
 
 				return this.m_Data;

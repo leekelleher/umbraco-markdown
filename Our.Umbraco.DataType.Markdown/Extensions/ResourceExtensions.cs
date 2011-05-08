@@ -7,7 +7,7 @@ using ClientDependency.Core.Controls;
 namespace Our.Umbraco.DataType.Markdown.Extensions
 {
 	/// <summary>
-	/// Extension methods for embedded resources
+	/// Extension methods for embedded resources.
 	/// </summary>
 	public static class ResourceExtensions
 	{
@@ -21,10 +21,6 @@ namespace Our.Umbraco.DataType.Markdown.Extensions
 		{
 			// get the urls for the embedded resources
 			var resourceUrl = ctl.Page.ClientScript.GetWebResourceUrl(ctl.GetType(), resourceName);
-
-			// This only works in v4 currently or until i release CD version 1.2,
-			// so in the meantime, we'll use the below method add the resources to client dependency
-			//// ClientDependencyLoader.Instance.RegisterDependency(resourceUrl, type);
 
 			switch (type)
 			{
