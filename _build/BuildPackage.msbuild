@@ -7,12 +7,13 @@
 
 	<!-- PROPERTIES -->
 	<PropertyGroup>
-		<PackageVersion>1.3</PackageVersion>
+		<PackageVersion>1.4</PackageVersion>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<RootDir>$(MSBuildProjectDirectory)\..\Our.Umbraco.DataType.Markdown</RootDir>
 		<BuildDir>$(MSBuildProjectDirectory)\_temp</BuildDir>
+		<ILMergeExe>$(MSBuildProjectDirectory)\MSBuildTasks\ILMerge.exe</ILMergeExe>
 	</PropertyGroup>
 
 	<!-- TARGETS -->
@@ -42,12 +43,21 @@
 		<MSBuild Projects="$(RootDir)\..\Our.Umbraco.DataType.Markdown.sln" Properties="Configuration=Release" />
 	</Target>
 
-	<!-- PREPAIRE FILES -->
-	<Target Name="PrepairFiles" DependsOnTargets="Compile">
+	<!-- MERGE DLLS -->
+	<Target Name="MergeDlls" DependsOnTargets="Compile">
+		<ItemGroup>
+			<Dlls Include="$(RootDir)\bin\Release\Our.Umbraco.DataType.Markdown.Helpers.dll" />
+			<Dlls Include="$(RootDir)\bin\Release\HtmlToMarkdown.dll" />
+		</ItemGroup>
+		<Exec Command="$(ILMergeExe) /ndebug /internalize /out:$(RootDir)\bin\Release\Our.Umbraco.DataType.Markdown.Helpers.dll @(Dlls, ' ')" />
+	</Target>
+	
+	<!-- PREPARE FILES -->
+	<Target Name="PrepairFiles" DependsOnTargets="MergeDlls">
 		<ItemGroup>
 			<BinFiles Include="$(RootDir)\bin\Release\MarkdownSharp.dll" />
-			<BinFiles Include="$(RootDir)\bin\Release\HtmlToMarkdown.dll" />
 			<BinFiles Include="$(RootDir)\bin\Release\Our.Umbraco.DataType.Markdown.dll" />
+			<BinFiles Include="$(RootDir)\bin\Release\Our.Umbraco.DataType.Markdown.Helpers.dll" />
 			<PackageFile Include="$(MSBuildProjectDirectory)\package.xml" />
 		</ItemGroup>
 		<Copy SourceFiles="@(BinFiles)" DestinationFolder="$(BuildDir)\bin" />

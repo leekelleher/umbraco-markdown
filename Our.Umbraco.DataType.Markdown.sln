@@ -25,9 +25,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Package", "Build Pack
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HtmlToMarkdown", "HtmlToMarkdown", "{BF564731-1B49-47EC-AD06-00ACC8638F61}"
 	ProjectSection(SolutionItems) = preProject
-		_externals\HtmlToMarkdown\HtmlToMarkdown.dll = _externals\HtmlToMarkdown\HtmlToMarkdown.dll
+		_externals\HtmlToMarkdown\compile.cmd = _externals\HtmlToMarkdown\compile.cmd
 		_externals\HtmlToMarkdown\HtmlToMarkdown.xslt = _externals\HtmlToMarkdown\HtmlToMarkdown.xslt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.DataType.Markdown.Helpers", "Our.Umbraco.DataType.Markdown.Helpers\Our.Umbraco.DataType.Markdown.Helpers.csproj", "{EACD1567-D831-4C99-A3FF-990E1DA3108E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C66026A9-3686-4E5B-A373-7BFD8AA7F624}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C66026A9-3686-4E5B-A373-7BFD8AA7F624}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C66026A9-3686-4E5B-A373-7BFD8AA7F624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACD1567-D831-4C99-A3FF-990E1DA3108E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACD1567-D831-4C99-A3FF-990E1DA3108E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACD1567-D831-4C99-A3FF-990E1DA3108E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACD1567-D831-4C99-A3FF-990E1DA3108E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

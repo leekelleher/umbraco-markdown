@@ -1,13 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using System.Xml;
 using System.Xml.Xsl;
 
-using MarkdownSharp;
-using Our.Umbraco.DataType.Markdown.Extensions;
-
-namespace Our.Umbraco.DataType.Markdown
+namespace Our.Umbraco.DataType.Markdown.Helpers
 {
 	public class XsltExtensions
 	{
@@ -16,7 +12,7 @@ namespace Our.Umbraco.DataType.Markdown
 			var markdown = new MarkdownSharp.Markdown();
 			return markdown.Transform(input);
 		}
-		
+
 		public static string HtmlToMarkdown(string input)
 		{
 			string output = string.Empty;

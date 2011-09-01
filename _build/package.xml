@@ -4,7 +4,7 @@
 	<info>
 		<package>
 			<name>Markdown Editor</name>
-			<version>1.3</version>
+			<version>1.4</version>
 			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
 			<url>http://our.umbraco.org/projects/backoffice-extensions/markdown-editor</url>
 			<requirements>

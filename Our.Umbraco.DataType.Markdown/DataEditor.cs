@@ -26,7 +26,7 @@ namespace Our.Umbraco.DataType.Markdown
 		private IData m_Data;
 
 		/// <summary>
-		/// 
+		/// The options from the prevalue editor.
 		/// </summary>
 		private Options m_Options;
 		
@@ -114,6 +114,10 @@ namespace Our.Umbraco.DataType.Markdown
 			}
 		}
 
+		/// <summary>
+		/// Gets the options.
+		/// </summary>
+		/// <value>The options.</value>
 		public Options Options
 		{
 			get

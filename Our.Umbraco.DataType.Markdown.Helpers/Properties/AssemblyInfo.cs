@@ -1,15 +1,15 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Our.Umbraco.DataType.Markdown")]
-[assembly: AssemblyDescription("WMD Markdown Editor for Umbraco")]
+[assembly: AssemblyTitle("Our.Umbraco.DataType.Markdown.Helpers")]
+[assembly: AssemblyDescription("Markdown XSLT Extensions for Umbraco")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Vertino Ltd")]
-[assembly: AssemblyProduct("Our.Umbraco.DataType.Markdown")]
+[assembly: AssemblyProduct("Our.Umbraco.DataType.Markdown.Helpers")]
 [assembly: AssemblyCopyright("Copyright Vertino Ltd 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a1cf2ea2-9b1f-45f7-92be-330cd9480d64")]
+[assembly: Guid("4ebae365-a1b9-46d2-858e-262afbb05821")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -31,6 +31,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.4.0.0")]
-[assembly: AssemblyVersion("1.4.0.0")]
-[assembly: AssemblyFileVersion("1.4.0.0")]
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
