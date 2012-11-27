@@ -33,10 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HtmlToMarkdown">
-      <HintPath>..\_externals\HtmlToMarkdown\HtmlToMarkdown.dll</HintPath>
+      <HintPath>..\..\Lib\HtmlToMarkdown\HtmlToMarkdown.dll</HintPath>
     </Reference>
     <Reference Include="MarkdownSharp">
-      <HintPath>..\_externals\MarkdownSharp.dll</HintPath>
+      <HintPath>..\..\Lib\MarkdownSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
