@@ -11,7 +11,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<RootDir>$(MSBuildProjectDirectory)\..\Our.Umbraco.DataType.Markdown</RootDir>
+		<RootDir>$(MSBuildProjectDirectory)\..\Src\Our.Umbraco.DataType.Markdown</RootDir>
 		<BuildDir>$(MSBuildProjectDirectory)\_temp</BuildDir>
 		<ILMergeExe>$(MSBuildProjectDirectory)\MSBuildTasks\ILMerge.exe</ILMergeExe>
 	</PropertyGroup>
@@ -40,7 +40,7 @@
 
 	<!-- COMPILE -->
 	<Target Name="Compile" DependsOnTargets="UpdateAssemblyInfo">
-		<MSBuild Projects="$(RootDir)\..\Our.Umbraco.DataType.Markdown.sln" Properties="Configuration=Release" />
+		<MSBuild Projects="$(RootDir)\..\..\Our.Umbraco.DataType.Markdown.sln" Properties="Configuration=Release" />
 	</Target>
 
 	<!-- MERGE DLLS -->
