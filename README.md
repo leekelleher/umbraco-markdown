@@ -4,7 +4,7 @@ The Markdown Editor for Umbraco is a data-type that enables you to write your co
 
 http://our.umbraco.org/projects/backoffice-extensions/markdown-editor
 
-## Video demo
+### Video demo
 http://www.screenr.com/Wsn
 
 ### What is Markdown?
@@ -15,6 +15,6 @@ Further information here: http://daringfireball.net/projects/markdown/
 WMD is a simple, lightweight HTML editor for basic content management.  The WMD editor became extremely popular due to its use on the [StackOverflow](http://stackoverflow.com/) website.
 The original WMD Editor website: http://wmd-editor.com/
 
-## What is MarkEdit?
+### What is MarkEdit?
 MarkEdit is a fork/re-write of the WMD for Stackoverflow.  It has extensive improvements and modifications which implement customization, a public api, configurability, and internationalization.
 MarkEdit website: http://tstone.github.com/jquery-markedit/
