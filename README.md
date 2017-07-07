@@ -1,5 +1,7 @@
 # Markdown Editor for Umbraco
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 The Markdown Editor for Umbraco is a data-type that enables you to write your content using Markdown syntax.  Configuration options are available to enable/disable the WMD Editor (powered by MarkEdit).
 
 http://our.umbraco.org/projects/backoffice-extensions/markdown-editor
